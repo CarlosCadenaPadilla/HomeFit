@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String user = mTextUsername.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
+
                 Boolean res = db.checkUser(user, pwd);
                 if(res == true)
                 {
