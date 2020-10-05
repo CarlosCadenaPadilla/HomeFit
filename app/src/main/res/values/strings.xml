@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HomeFitP</string>
+    <string name="app_name">HomeFit</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">LOGIN</string>
@@ -8,5 +8,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="already_registered">Already Registered?</string>
     <string name="welcome_user">Welcome User mundo</string>
+    <string name="tu_ultimo_registro">Tu último registro</string>
 
 </resources>
