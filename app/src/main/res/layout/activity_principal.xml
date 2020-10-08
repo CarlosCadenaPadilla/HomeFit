@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/textViewOlvidasteContraseña"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="27dp"
         android:layout_marginStart="130dp"
         android:layout_marginTop="36dp"

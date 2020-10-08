@@ -23,7 +23,7 @@ public class PrincipalActivity extends AppCompatActivity {
         mButtonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent LoginIntent = new Intent(PrincipalActivity.this,MainActivity.class);
+                Intent LoginIntent = new Intent(PrincipalActivity.this, LoginActivity.class);
                 startActivity(LoginIntent);
             }
         });

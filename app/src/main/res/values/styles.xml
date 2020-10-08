@@ -1,10 +1,26 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="FullscreenDialogTheme" parent="Theme.AppCompat.Light.DialogWhenLarge">
+        <item name="android:windowAnimationStyle">@style/Animation.AppCompat.Dialog</item>
+    </style>
+
+    <style name="FontFamily_montserratSemiBold"  parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+    </style>
+
+    <style name="FontFamily_montserratRegular"  parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="SuffixTextSize"  parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>
