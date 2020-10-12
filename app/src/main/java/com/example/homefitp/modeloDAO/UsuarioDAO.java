@@ -89,14 +89,36 @@ public class UsuarioDAO {
         Cursor cursor = db.rawQuery("Select * from " + Utilidades.tablaUsuarios.TABLA_NOMBRE + " WHERE " + parametros[0] + "=? and " + parametros[1] + "=?", argumentos);
 
         if (cursor.moveToFirst()) {
-            usuario = new Usuario(cursor.getString(0),
-                    cursor.getString(1), cursor.getString(2), cursor.getString(3),
-                    cursor.getString(4), cursor.getInt(5), cursor.getInt(6),
-                    cursor.getString(7), cursor.getString(8));
+            usuario = new Usuario(cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getString(5), cursor.getInt(6), cursor.getInt(7),
+                    cursor.getString(8), cursor.getString(9));
 
             db.close();
             return usuario;
         }
         return null;
     }
+
+    public long updateUsuario(Usuario usuario) {
+        ContentValues registro = new ContentValues();
+        registro.put(Utilidades.tablaUsuarios.NOMBRE, usuario.getNombre());
+        registro.put(Utilidades.tablaUsuarios.EDAD, usuario.getEdad());
+        registro.put(Utilidades.tablaUsuarios.SEXO, usuario.getSexo());
+        registro.put(Utilidades.tablaUsuarios.ESTATURA, usuario.getEstatura());
+        registro.put(Utilidades.tablaUsuarios.PESO, usuario.getPeso());
+        registro.put(Utilidades.tablaUsuarios.DIFICULTAD_DESEADA, usuario.getDificultad_deseada());
+        registro.put(Utilidades.tablaUsuarios.OBJETIVO, usuario.getObjetivo());
+
+        long id = db.update(Utilidades.tablaUsuarios.TABLA_NOMBRE, registro, Utilidades.tablaUsuarios.CORREO + "='" + usuario.getCorreo() + "'", null);
+        db.close();
+        return id;
+    }
+
+    public long deleteUsuario(Usuario usuario) {
+        long id = db.delete(Utilidades.tablaUsuarios.TABLA_NOMBRE, Utilidades.tablaUsuarios.CORREO + "='" + usuario.getCorreo() + "'", null);
+        return id;
+    }
+
+
 }

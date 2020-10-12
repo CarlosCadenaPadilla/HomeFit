@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".EditarDatosActivity">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="188dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="508dp"
+            android:ems="10"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            app:hintTextAppearance="@style/FontFamily_montserratRegular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittextNombre"
+                android:layout_width="316dp"
+                android:layout_height="42dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="244dp"
+            android:layout_marginBottom="444dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etSexo"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Sexo"
+                app:hintTextAppearance="@style/FontFamily_montserratRegular">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/editTextAutocompleteGenero"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:inputType="none"
+                    android:textSize="12sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:ems="10"
+                android:hint="Edad"
+                android:inputType="number"
+                app:hintTextAppearance="@style/FontFamily_montserratRegular"
+                app:suffixText="Años"
+                app:suffixTextAppearance="@style/SuffixTextSize">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittextEdad"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="304dp"
+            android:layout_marginBottom="384dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Peso"
+                android:inputType="number"
+                app:hintTextAppearance="@style/FontFamily_montserratRegular"
+                app:suffixText="Kg"
+                app:suffixTextAppearance="@style/SuffixTextSize">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittextPeso"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:ems="10"
+                android:hint="Altura"
+                android:inputType="number"
+                app:hintTextAppearance="@style/FontFamily_montserratRegular"
+                app:suffixText="Cm"
+                app:suffixTextAppearance="@style/SuffixTextSize">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittextAltura"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="316dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="374dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="314dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="Objetivo:"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.595" />
+
+        <RadioGroup
+            android:id="@+id/rgObjetivo"
+            android:layout_width="316dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="444dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="273dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rbBajarPeso"
+                android:layout_width="279dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Bajar de Peso"
+                android:textSize="13sp" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/rbTonificar"
+                android:layout_width="279dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Tonificar"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="533dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="191dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Tiempo rutina"
+                android:inputType="text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:ems="10"
+                android:hint="Intensidad"
+                android:inputType="text">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/editTextAutocompleteDificultad"
+                    android:layout_width="150dp"
+                    android:layout_height="44dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:inputType="none"
+                    android:textSize="12sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonGuardar"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="672dp"
+            android:layout_marginBottom="48dp"
+            android:backgroundTint="@color/colorAccent"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="GUARDAR"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="65dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="147dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="147dp"
+            android:layout_marginBottom="601dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewUsuario"
+                android:layout_width="65dp"
+                android:layout_height="63dp"
+                android:background="@color/colorAccent"
+                app:srcCompat="@drawable/female_user" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

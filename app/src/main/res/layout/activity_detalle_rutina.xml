@@ -1,0 +1,157 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="124dp"
+        android:background="@color/colorAccent"></LinearLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:background="@color/colorAccent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/AppBarRutina"
+            style="@style/Widget.MaterialComponents.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Rutina"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            android:background="@color/colorAccent"
+
+            app:titleTextAppearance="@style/FontFamily_montserratSemiBold"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+    
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="337dp"
+            android:layout_height="143dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="78dp"
+            android:layout_marginEnd="12dp"
+            android:foregroundGravity="center"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginRight="22dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="21dp"
+
+                        android:src="@drawable/ic_timer" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Duración de la rutina"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/textview_duracion_rutina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:fontFamily="@font/montserrat_regular"
+
+                        android:text="7 min"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginRight="22dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="21dp"
+                        android:src="@drawable/ic_whatshot" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Gasto de energìa"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/textview_gasto_energia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="7 min"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginRight="22dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="21dp"
+                        android:src="@drawable/ic_circuits" />
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="19dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Nùmero de circuitos"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/textview_circuitos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="7 min"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

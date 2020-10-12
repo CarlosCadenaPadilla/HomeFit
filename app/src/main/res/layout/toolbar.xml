@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout android:id="@+id/appBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/AppBar"
+        style="@style/Widget.MaterialComponents.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:titleTextAppearance="@style/FontFamily_montserratSemiBold"
+        app:titleTextColor="#707070" />
+</com.google.android.material.appbar.AppBarLayout>

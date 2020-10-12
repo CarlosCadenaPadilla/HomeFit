@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_rutinas"
+        android:enabled="true"
+        android:icon="@drawable/ic_entrenamiento"
+        />
+
+    <item
+        android:id="@+id/nav_perfil"
+        android:enabled="true"
+        android:icon="@drawable/ic_perfil"
+
+        />
+
+
+</menu>

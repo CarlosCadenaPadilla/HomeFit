@@ -1,30 +1,44 @@
 package com.example.homefitp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import androidx.fragment.app.Fragment;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.MenuItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button mButtonLogout;
+    private BottomNavigationView bottomNav;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        mButtonLogout = (Button)findViewById(R.id.button_logout);
-
-        mButtonLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent LogoutIntent = new Intent(HomeActivity.this,PrincipalActivity.class);
-                startActivity(LogoutIntent);
-            }
-        });
+        bottomNav = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        bottomNav.setSelectedItemId(R.id.nav_rutinas);
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment selectedFragment = null;
+            switch (item.getItemId()){
+                case R.id.nav_rutinas:
+                    selectedFragment =  new RutinasFragment();
+                    break;
+                case R.id.nav_perfil:
+                    selectedFragment =  new PerfilFragment();
+                    break;
+            }
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+            return true;
+        }
+    };
+
 }

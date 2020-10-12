@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class RegistroDatosActivity extends AppCompatActivity implements View.OnC
     private RadioGroup rgGenero, rgObjetivo, rgDificultad;
     private Button enviar;
     private String genero, objetivo, dificultad;
+    private Usuario usuario;
 
 
     @Override
@@ -44,39 +46,27 @@ public class RegistroDatosActivity extends AppCompatActivity implements View.OnC
         rgGenero.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.rbFemenino : genero = "Femenino";
-                    break;
-                    case R.id.rbMasculino : genero = "Masculino";
-                    break;
-                    case R.id.rbOtro : genero = "Otro";
-                    break;
-                }
+
+                    RadioButton b= findViewById(checkedId);
+                    genero = b.getText().toString();
+
             }
         });
 
         rgObjetivo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.rbBajarPeso : objetivo = "Bajar de Peso";
-                        break;
-                    case R.id.rbTonificar : objetivo = "Tonificar";
-                        break;
-            }
+                RadioButton b= findViewById(checkedId);
+                objetivo = b.getText().toString();
+
+
         }});
 
         rgDificultad.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.rbDificultadAlta : dificultad = "Alta";
-                        break;
-                    case R.id.rbDificultadMedia : dificultad = "Media";
-                        break;
-                    case R.id.rbDificultadBaja : dificultad = "Baja";
-                        break;
-                }
+                RadioButton b= findViewById(checkedId);
+                dificultad = b.getText().toString();
             }
         });
     }
@@ -84,12 +74,13 @@ public class RegistroDatosActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
-        Usuario usuario = new Usuario(nombre, correo, contraseña, edad.getText().toString(), genero, Integer.parseInt(altura.getText().toString()), Integer.parseInt(peso.getText().toString()), dificultad, objetivo);
+        usuario = new Usuario(nombre, correo, contraseña, edad.getText().toString(), genero, Integer.parseInt(altura.getText().toString()), Integer.parseInt(peso.getText().toString()), dificultad, objetivo);
         UsuarioDAO usuarioDAO = new UsuarioDAO(RegistroDatosActivity.this);
         long id = usuarioDAO.insertUsuario(usuario);
 
         if(id>-1){
             Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }else{
             Toast.makeText(RegistroDatosActivity.this,"Error en la conexión",Toast.LENGTH_SHORT).show();
         }
