@@ -31,6 +31,8 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
                 "    Bajamos el cuerpo doblando los brazos, volvemos a la posición inicial extendiendo los brazos.","flexiones", "", "Media", "Tonificar");
 
         insertRutina(db,"Entrenamiento 7 Minutos", "rutina_7min", 7, 150, 2 );
+        insertRutina(db, "Ejercicios Abdominales","ic_circulo_azul", 7, 150, 2);
+        insertRutina(db, "Ejercicios Absee", "ic_circulo_azul", 7, 150, 2);
 
     }
 

@@ -2,11 +2,15 @@ package com.example.homefitp.modeloDAO;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.homefitp.ConexionSQLiteHelper;
 import com.example.homefitp.Entidades.Ejercicio;
+import com.example.homefitp.Entidades.Rutina;
 import com.example.homefitp.utilidades.Utilidades;
+
+import java.util.ArrayList;
 
 public class EjercicioDAO {
     private ConexionSQLiteHelper conexionSQLiteHelper;
@@ -31,5 +35,18 @@ public class EjercicioDAO {
         long id = db.insert(Utilidades.tablaUsuarios.TABLA_NOMBRE, Utilidades.tablaUsuarios.ID, registro);
         db.close();
         return id;
+    }
+
+    public ArrayList<Ejercicio> consultarEjercicios() {
+        ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
+        Cursor cursor = db.rawQuery(Utilidades.tablaEjercicios.CONSULTAR_ALL_TABLE, null);
+        while (cursor.moveToNext()) {
+            ejercicios.add(new Ejercicio(cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getString(5),cursor.getString(6)));
+        }
+        db.close();
+        return ejercicios;
     }
 }
