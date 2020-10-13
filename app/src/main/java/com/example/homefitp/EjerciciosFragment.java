@@ -49,7 +49,7 @@ public class EjerciciosFragment extends Fragment {
         recyclerViewEjercicios.setLayoutManager(layoutManager);
         ejercicioDAO = new EjercicioDAO(getContext());
         ejercicios = ejercicioDAO.consultarEjercicios();
-        recyclerViewEjercicios.setAdapter(new AdaptadorEjercicios(ejercicios, getContext(), this));
+//        recyclerViewEjercicios.setAdapter(new AdaptadorEjercicios(ejercicios, getContext(), ));
     }
 
     public void verDetalleEjercicio(int id) {

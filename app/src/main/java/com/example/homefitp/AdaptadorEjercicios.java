@@ -18,19 +18,19 @@ import java.util.ArrayList;
 public class AdaptadorEjercicios extends RecyclerView.Adapter<AdaptadorEjercicios.ViewHolderEjercicios> {
     private ArrayList<Ejercicio> dataSet;
     private Context context;
-    private EjerciciosFragment fragment;
+    private DetalleRutinaActivity detalleRutinaActivity;
 
-    public AdaptadorEjercicios(ArrayList<Ejercicio> dataSet, Context context, EjerciciosFragment fragment) {
+    public AdaptadorEjercicios(ArrayList<Ejercicio> dataSet, Context context, DetalleRutinaActivity detalleRutinaActivity) {
         this.dataSet = dataSet;
         this.context = context;
-        this.fragment = fragment;
+        this.detalleRutinaActivity = detalleRutinaActivity;
     }
 
     @NonNull
     @Override
     public AdaptadorEjercicios.ViewHolderEjercicios onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_ejercicios, parent, false);
-        return new AdaptadorEjercicios.ViewHolderEjercicios(view, fragment);
+        return new AdaptadorEjercicios.ViewHolderEjercicios(view, detalleRutinaActivity);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class AdaptadorEjercicios extends RecyclerView.Adapter<AdaptadorEjercicio
         holder.nombreEjercicio.setText(ejercicio.getNombre());
         int idImagen = context.getResources().getIdentifier(ejercicio.getIdImagen(), "drawable", context.getPackageName());
         holder.imagenEjercicio.setImageResource(idImagen);
-        holder.idEjercicio.setText(ejercicio.getId());
+        holder.idEjercicio.setText(ejercicio.getId() + "");
     }
 
     @Override
@@ -52,16 +52,16 @@ public class AdaptadorEjercicios extends RecyclerView.Adapter<AdaptadorEjercicio
         private TextView nombreEjercicio;
         private TextView idEjercicio;
 
-        public ViewHolderEjercicios(@NonNull View itemView, final EjerciciosFragment fragment) {
+        public ViewHolderEjercicios(@NonNull View itemView, final DetalleRutinaActivity detalleRutinaActivity) {
             super(itemView);
             idEjercicio = (TextView) itemView.findViewById(R.id.textViewIdEjercicio);
             imagenEjercicio = itemView.findViewById(R.id.imageViewEjercicio);
             nombreEjercicio = itemView.findViewById(R.id.textViewNombreEjercicio);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    fragment.verDetalleEjercicio(Integer.parseInt(idEjercicio.getText().toString()));
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                public void onClick(View v) {
+//                    detalleRutinaActivity.verDetalleEjercicio(Integer.parseInt(idEjercicio.getText().toString()));
+//                }
+//            });
         }
     }
 }
