@@ -41,10 +41,10 @@ public class EjercicioDAO {
         ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
         Cursor cursor = db.rawQuery(Utilidades.tablaEjercicios.CONSULTAR_ALL_TABLE, null);
         while (cursor.moveToNext()) {
-            ejercicios.add(new Ejercicio(cursor.getString(0),
+            ejercicios.add(new Ejercicio(cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2), cursor.getString(3), cursor.getString(4),
-                    cursor.getString(5),cursor.getString(6)));
+                    cursor.getString(5),cursor.getString(6),cursor.getString(7)));
         }
         db.close();
         return ejercicios;

@@ -10,6 +10,17 @@ public class Ejercicio {
     String dificultad;
     String objetivo;
 
+    public Ejercicio(int id, String nombre, String descripcion, String instrucciones, String idImagen, String idAnimacion, String dificultad, String objetivo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.instrucciones = instrucciones;
+        this.idImagen = idImagen;
+        this.idAnimacion = idAnimacion;
+        this.dificultad = dificultad;
+        this.objetivo = objetivo;
+    }
+
     public Ejercicio(String nombre, String descripcion, String instrucciones, String idImagen, String idAnimacion, String dificultad, String objetivo) {
         this.nombre = nombre;
         this.descripcion = descripcion;
