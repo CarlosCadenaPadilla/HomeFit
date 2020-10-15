@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -40,7 +41,8 @@ public class DetalleRutinaActivity extends AppCompatActivity {
         int idRutina = getIntent().getIntExtra("idRutina", 0);
         rutina = rutinaDAO.consultarRutina(idRutina);
 
-        if (rutina != null) {
+        if (rutina
+                != null) {
             duracion.setText(rutina.getDuracion() + " min");
             gastoEnergia.setText(rutina.getGastoEnergia() + " kcal");
             circuitos.setText(rutina.getCircuitos() + "");
@@ -73,6 +75,9 @@ public class DetalleRutinaActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void verDetalleEjercicio(int parseInt) {
+    public void verDetalleEjercicio(int id) {
+        Intent intent = new Intent(DetalleRutinaActivity.this,DetalleEjercicioActivity.class);
+        intent.putExtra("idEjercicio" , id);
+        startActivity(intent);
     }
 }

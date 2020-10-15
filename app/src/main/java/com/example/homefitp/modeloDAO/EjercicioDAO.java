@@ -32,7 +32,7 @@ public class EjercicioDAO {
         registro.put(Utilidades.tablaEjercicios.OBJETIVO, ejercicio.getObjetivo());
 
 
-        long id = db.insert(Utilidades.tablaUsuarios.TABLA_NOMBRE, Utilidades.tablaUsuarios.ID, registro);
+        long id = db.insert(Utilidades.tablaEjercicios.NOMBRE_TABLA, Utilidades.tablaEjercicios.ID, registro);
         db.close();
         return id;
     }
@@ -41,12 +41,25 @@ public class EjercicioDAO {
         ArrayList<Ejercicio> ejercicios = new ArrayList<Ejercicio>();
         Cursor cursor = db.rawQuery(Utilidades.tablaEjercicios.CONSULTAR_ALL_TABLE, null);
         while (cursor.moveToNext()) {
-            ejercicios.add(new Ejercicio(cursor.getString(0),
+            ejercicios.add(new Ejercicio(cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2), cursor.getString(3), cursor.getString(4),
-                    cursor.getString(5),cursor.getString(6)));
+                    cursor.getString(5),cursor.getString(6),cursor.getString(7)));
         }
         db.close();
         return ejercicios;
+    }
+
+    public Ejercicio consultarEjercicio(int id) {
+        Ejercicio ejercicio = null;
+        Cursor cursor = db.rawQuery("SELECT * FROM " + Utilidades.tablaEjercicios.NOMBRE_TABLA + " WHERE " + Utilidades.tablaEjercicios.ID + "=" + id, null);
+        if (cursor.moveToNext()) {
+            ejercicio = new Ejercicio(cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getString(5),cursor.getString(6),cursor.getString(7));
+        }
+        db.close();
+        return ejercicio;
     }
 }

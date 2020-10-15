@@ -57,11 +57,11 @@ public class AdaptadorEjercicios extends RecyclerView.Adapter<AdaptadorEjercicio
             idEjercicio = (TextView) itemView.findViewById(R.id.textViewIdEjercicio);
             imagenEjercicio = itemView.findViewById(R.id.imageViewEjercicio);
             nombreEjercicio = itemView.findViewById(R.id.textViewNombreEjercicio);
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                public void onClick(View v) {
-//                    detalleRutinaActivity.verDetalleEjercicio(Integer.parseInt(idEjercicio.getText().toString()));
-//                }
-//            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    detalleRutinaActivity.verDetalleEjercicio(Integer.parseInt(idEjercicio.getText().toString()));
+                }
+            });
         }
     }
 }

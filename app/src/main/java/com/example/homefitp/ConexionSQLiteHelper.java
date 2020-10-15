@@ -22,7 +22,7 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(Utilidades.tablaUsuarios.CREAR_TABLA);
         db.execSQL(Utilidades.tablaEjercicios.CREAR_TABLA);
         db.execSQL(Utilidades.tablaRutinas.CREAR_TABLA);
-        insertEjercicio(db,"Saltos de Tijera","", "Paso 1 Ponte de pie con los pies juntos, y coloca las manos sobre los muslos. Paso 2 Flexiona las rodillas, salta y separa los pies en pleno salto. Paso 3 Déjate caer con los pies separados a una distancia mayor que los hombros, bajando hasta quedar en posición de sentadilla.","salto_tijera", "", "Baja", "Bajar de Peso");
+        insertEjercicio(db,"Saltos de Tijera","", "Paso 1: Ponte de pie con los pies juntos, y coloca las manos sobre los muslos. Paso 2: Flexiona las rodillas, salta y separa los pies en pleno salto. Paso 3: Déjate caer con los pies separados a una distancia mayor que los hombros, bajando hasta quedar en posición de sentadilla.","salto_tijera", "", "Baja", "Bajar de Peso");
         insertEjercicio(db,"Sentadilla en Pared","", "Haz una sentadilla echando las caderas hacia atrás contra la pared y manteniendo los talones apoyados y las rodillas hacia fuera. Levanta los brazos hacia adelante para mantener el equilibrio. Haz una pausa de 10 segundos y luego levántate y vuelve a la posición inicial","sentadilla_pared", "", "Media", "Tonificar");
         insertEjercicio(db,"Sentadilla en Pared","", "Acuéstese boca abajo.\n" +
                 "    Coloque las palmas de las manos en el suelo a la altura de los hombros, ligeramente más abiertos que el ancho de sus hombros.\n" +
