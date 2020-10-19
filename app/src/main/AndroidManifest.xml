@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetalleRutinaActivity"></activity>
+        <activity android:name=".RealizarRutinaActivity"></activity>
+        <activity android:name=".DetalleEjercicioActivity" />
+        <activity android:name=".DetalleRutinaActivity" />
         <activity android:name=".ConfiguracionActivity" />
         <activity android:name=".EditarDatosActivity" />
         <activity android:name=".RegistroDatosActivity" />

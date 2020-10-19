@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.homefitp.ConexionSQLiteHelper;
+import com.example.homefitp.Entidades.DetalleEjercicio;
 import com.example.homefitp.Entidades.Rutina;
 import com.example.homefitp.Entidades.Usuario;
 import com.example.homefitp.utilidades.Utilidades;
@@ -57,6 +58,14 @@ public class RutinaDAO {
                     cursor.getString(2), cursor.getInt(3), cursor.getInt(4),
                     cursor.getInt(5));
         }
+        Cursor cursor1 = db.rawQuery(Utilidades.tablaDetalleEjercicio.CONSULTAR_ALL_TABLE + " WHERE " + Utilidades.tablaDetalleEjercicio.ID_RUTINA + "=" + id , null);
+       ArrayList<DetalleEjercicio> detalleEjercicios = new ArrayList<DetalleEjercicio>();
+        while (cursor1.moveToNext()) {
+            detalleEjercicios.add(new DetalleEjercicio(cursor1.getInt(0),
+                    cursor1.getInt(1),
+                    cursor1.getInt(2)));
+        }
+        rutina.setDetalleEjercicios(detalleEjercicios);
         db.close();
         return rutina;
     }

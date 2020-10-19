@@ -22,17 +22,22 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(Utilidades.tablaUsuarios.CREAR_TABLA);
         db.execSQL(Utilidades.tablaEjercicios.CREAR_TABLA);
         db.execSQL(Utilidades.tablaRutinas.CREAR_TABLA);
-        insertEjercicio(db,"Saltos de Tijera","", "Paso 1 Ponte de pie con los pies juntos, y coloca las manos sobre los muslos. Paso 2 Flexiona las rodillas, salta y separa los pies en pleno salto. Paso 3 Déjate caer con los pies separados a una distancia mayor que los hombros, bajando hasta quedar en posición de sentadilla.","salto_tijera", "", "Baja", "Bajar de Peso");
-        insertEjercicio(db,"Sentadilla en Pared","", "Haz una sentadilla echando las caderas hacia atrás contra la pared y manteniendo los talones apoyados y las rodillas hacia fuera. Levanta los brazos hacia adelante para mantener el equilibrio. Haz una pausa de 10 segundos y luego levántate y vuelve a la posición inicial","sentadilla_pared", "", "Media", "Tonificar");
-        insertEjercicio(db,"Sentadilla en Pared","", "Acuéstese boca abajo.\n" +
-                "    Coloque las palmas de las manos en el suelo a la altura de los hombros, ligeramente más abiertos que el ancho de sus hombros.\n" +
-                "    Levante el cuerpo hacia arriba e ir enderezando los brazos, procura mantener una postura erguida. Evita inclinar el tronco hacia atrás.\n" +
-                "    El cuerpo debe apoyarse únicamente sobre las manos y los dedos de los pies, manteniendo la posición erguida todo el tiempo.\n" +
-                "    Bajamos el cuerpo doblando los brazos, volvemos a la posición inicial extendiendo los brazos.","flexiones", "", "Media", "Tonificar");
+        db.execSQL(Utilidades.tablaDetalleEjercicio.CREAR_TABLA);
+
+        insertEjercicio(db,"Saltos de Tijera","",   "<p><b>Paso 1</b> Ponte de pie con los pies juntos, y coloca las manos sobre los muslos.</p> <p><b>Paso 2</b> Flexiona las rodillas, salta y separa los pies en pleno salto.</p> <p><b>Paso 3</b> Déjate caer con los pies separados a una distancia mayor que los hombros, bajando hasta quedar en posición de sentadilla.</p>","salto_tijera", "", "Baja", "Bajar de Peso");
+        insertEjercicio(db,"Sentadilla en Pared","", "<p><strong>Paso1 </strong> Haz una sentadilla echando las caderas hacia atrás contra la pared y manteniendo los talones apoyados y las rodillas hacia fuera.</p> <p><strong>Paso 2</strong> Levanta los brazos hacia adelante para mantener el equilibrio.</p> <p><strong>Paso 3</strong> Haz una pausa de 10 segundos y luego levántate y vuelve a la posición inicial</p>","sentadilla_pared", "", "Media", "Tonificar");
+        insertEjercicio(db,"Flexiones","", "<p><strong>Paso 1 </strong> Acuéstese boca abajo.</p>" +
+                "<p><strong>Paso 2</strong> Coloque las palmas de las manos en el suelo a la altura de los hombros, ligeramente más abiertos que el ancho de sus hombros.</p>" +
+                "<p><strong>Paso 3</strong> Levante el cuerpo hacia arriba e ir enderezando los brazos, procura mantener una postura erguida. Evita inclinar el tronco hacia atrás.</p>" +
+                "<p><strong>Paso 4</strong> Bajamos el cuerpo doblando los brazos, volvemos a la posición inicial extendiendo los brazos.</p>","flexiones", "", "Media", "Tonificar");
 
         insertRutina(db,"Entrenamiento 7 Minutos", "rutina_7min", 7, 150, 2 );
         insertRutina(db, "Ejercicios Abdominales","ic_circulo_azul", 7, 150, 2);
         insertRutina(db, "Ejercicios Absee", "ic_circulo_azul", 7, 150, 2);
+
+        insertDetalleEjercicio(db,1,1,30);
+        insertDetalleEjercicio(db,2,1,30);
+        insertDetalleEjercicio(db,3,1,30);
 
     }
 
@@ -59,11 +64,20 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
         db.insert(Utilidades.tablaRutinas.NOMBRE_TABLA, Utilidades.tablaRutinas.ID, registro);
     }
 
+    public void insertDetalleEjercicio (SQLiteDatabase db, int idEjercicio, int idRutina, int tiempo){
+        ContentValues registro = new ContentValues();
+        registro.put(Utilidades.tablaDetalleEjercicio.ID_RUTINA, idRutina);
+        registro.put(Utilidades.tablaDetalleEjercicio.ID_EJERCICIO, idEjercicio);
+        registro.put(Utilidades.tablaDetalleEjercicio.TIEMPO, tiempo);
+        db.insert(Utilidades.tablaDetalleEjercicio.NOMBRE_TABLA, Utilidades.tablaDetalleEjercicio.ID_RUTINA, registro);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + Utilidades.tablaUsuarios.TABLA_NOMBRE);
         db.execSQL("DROP TABLE IF EXISTS " + Utilidades.tablaEjercicios.NOMBRE_TABLA);
         db.execSQL("DROP TABLE IF EXISTS " + Utilidades.tablaRutinas.NOMBRE_TABLA);
+        db.execSQL("DROP TABLE IF EXISTS " + Utilidades.tablaDetalleEjercicio.NOMBRE_TABLA);
         onCreate(db);
     }
 }

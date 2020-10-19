@@ -1,36 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="123dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:elevation="10dp"
+    android:layout_width="352dp"
+    android:layout_height="135dp"
+    app:cardUseCompatPadding="true"
     app:cardCornerRadius="10dp"
-    android:layout_gravity="center"
+    app:cardElevation="3dp"
+    android:focusable="true"
+    android:layout_gravity="center_horizontal"
+
     android:clickable="true">
 
-    <ImageView
-        android:id="@+id/imageViewEjercicio"
-        android:layout_width="73dp"
-        android:layout_height="73dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="26dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewNombreEjercicio"
+        <ImageView
+            android:id="@+id/imageViewEjercicio"
+            android:layout_width="73dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textViewNombreEjercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="TextView"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+        android:id="@+id/textViewTiempoEjercicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="134dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="42dp"
+        android:fontFamily="@font/montserrat_regular"
         android:text="TextView"
+        android:textColor="#7B7B7B"
         android:textSize="13sp"
-        android:fontFamily="@font/montserrat_medium"
-        android:textColor="#333333"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewIdEjercicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:text=""/>
+        <TextView
+            android:id="@+id/textViewPosicionEjercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="TextView"
+            android:textColor="#7B7B7B"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewIdEjercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="invisible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

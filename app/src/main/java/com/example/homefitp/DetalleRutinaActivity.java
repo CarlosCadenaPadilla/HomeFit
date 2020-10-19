@@ -6,14 +6,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.homefitp.Entidades.DetalleEjercicio;
 import com.example.homefitp.Entidades.Ejercicio;
 import com.example.homefitp.Entidades.Rutina;
+import com.example.homefitp.modeloDAO.DetalleEjercicioDAO;
 import com.example.homefitp.modeloDAO.EjercicioDAO;
 import com.example.homefitp.modeloDAO.RutinaDAO;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -22,9 +29,14 @@ public class DetalleRutinaActivity extends AppCompatActivity {
     Rutina rutina;
     RutinaDAO rutinaDAO;
 
+
+
     private RecyclerView recyclerViewEjercicios;
-    ArrayList<Ejercicio> ejercicios;
-    private EjercicioDAO ejercicioDAO;
+    ArrayList<DetalleEjercicio> detalleEjercicios;
+
+    EjercicioDAO ejercicioDAO;
+
+    FloatingActionButton btnIniciarRutina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +49,9 @@ public class DetalleRutinaActivity extends AppCompatActivity {
         circuitos = findViewById(R.id.textview_circuitos);
 
         rutinaDAO = new RutinaDAO(this);
-        int idRutina = getIntent().getIntExtra("idRutina", 0);
+        final int idRutina = getIntent().getIntExtra("idRutina", 0);
         rutina = rutinaDAO.consultarRutina(idRutina);
+
 
         if (rutina != null) {
             duracion.setText(rutina.getDuracion() + " min");
@@ -55,15 +68,26 @@ public class DetalleRutinaActivity extends AppCompatActivity {
         }
 
         recyclerViewEjercicios = findViewById(R.id.listaEjercicios);
-        ejercicios = new ArrayList<Ejercicio>();
+        detalleEjercicios = new ArrayList<DetalleEjercicio>();
+
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewEjercicios.setLayoutManager(layoutManager);
-        ejercicioDAO = new EjercicioDAO(this);
-        ejercicios = ejercicioDAO.consultarEjercicios();
-        recyclerViewEjercicios.setAdapter(new AdaptadorEjercicios(ejercicios, this, this));
 
+
+        ejercicioDAO = new EjercicioDAO(this);
+        recyclerViewEjercicios.setAdapter(new AdaptadorEjercicios(rutina.getDetalleEjercicios(), this, this));
+
+        btnIniciarRutina = findViewById(R.id.btnIniciarRutina);
+        btnIniciarRutina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetalleRutinaActivity.this, RealizarRutinaActivity.class);
+                intent.putExtra("idRutina", idRutina);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -73,6 +97,9 @@ public class DetalleRutinaActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void verDetalleEjercicio(int parseInt) {
+    public void verDetalleEjercicio(int idEjercicio) {
+        Intent intent = new Intent(this,DetalleEjercicioActivity.class);
+        intent.putExtra("idEjercicio", idEjercicio);
+        startActivity(intent);
     }
 }

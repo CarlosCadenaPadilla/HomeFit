@@ -58,4 +58,21 @@ public final class Utilidades {
         public static final String CONSULTAR_ALL_TABLE = "SELECT * FROM " + NOMBRE_TABLA;
     }
 
+    public class tablaDetalleEjercicio{
+        public static final String NOMBRE_TABLA = "detalle_ejercicio";
+        public static final String ID_RUTINA = "id_rutina";
+        public static final String ID_EJERCICIO = "id_ejercicio";
+        public static final String TIEMPO = "tiempo";
+
+        public static final String CREAR_TABLA = "CREATE TABLE " + NOMBRE_TABLA + "(" +
+                                                ID_EJERCICIO + " INTEGER, " +
+                                                ID_RUTINA + " INTEGER , " +
+                                                TIEMPO + " INTEGER," +
+                                                "PRIMARY KEY (" + ID_RUTINA + ", " + ID_EJERCICIO + ")," +
+                                                "FOREIGN KEY (" + ID_RUTINA + ") REFERENCES " + tablaRutinas.NOMBRE_TABLA + "(" + tablaRutinas.ID + ")" +
+                                                "FOREIGN KEY (" + ID_EJERCICIO + ") REFERENCES " + tablaEjercicios.NOMBRE_TABLA + "(" + tablaRutinas.ID + "))";
+
+        public static final String CONSULTAR_ALL_TABLE = "SELECT * FROM " + NOMBRE_TABLA;
+    }
+
 }

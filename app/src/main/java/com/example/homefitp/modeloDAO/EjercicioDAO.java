@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.homefitp.ConexionSQLiteHelper;
 import com.example.homefitp.Entidades.Ejercicio;
+
 import com.example.homefitp.Entidades.Rutina;
 import com.example.homefitp.utilidades.Utilidades;
 
@@ -32,7 +33,7 @@ public class EjercicioDAO {
         registro.put(Utilidades.tablaEjercicios.OBJETIVO, ejercicio.getObjetivo());
 
 
-        long id = db.insert(Utilidades.tablaUsuarios.TABLA_NOMBRE, Utilidades.tablaUsuarios.ID, registro);
+        long id = db.insert(Utilidades.tablaEjercicios.NOMBRE_TABLA, Utilidades.tablaEjercicios.ID, registro);
         db.close();
         return id;
     }
@@ -44,9 +45,22 @@ public class EjercicioDAO {
             ejercicios.add(new Ejercicio(cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2), cursor.getString(3), cursor.getString(4),
-                    cursor.getString(5),cursor.getString(6),cursor.getString(7)));
+                    cursor.getString(5), cursor.getString(6), cursor.getString(7)));
         }
         db.close();
         return ejercicios;
+    }
+
+    public Ejercicio consultarEjercicio(int id) {
+        Ejercicio ejercicio = null;
+        Cursor cursor = db.rawQuery(Utilidades.tablaEjercicios.CONSULTAR_ALL_TABLE + " WHERE " + Utilidades.tablaEjercicios.ID + "=" + id, null);
+        if (cursor.moveToNext()) {
+            ejercicio = new Ejercicio(cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getString(4),
+                    cursor.getString(5), cursor.getString(6), cursor.getString(7));
+        }
+
+        return ejercicio;
     }
 }

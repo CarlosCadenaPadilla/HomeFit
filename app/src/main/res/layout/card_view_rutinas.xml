@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="123dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:elevation="10dp"
-    app:cardCornerRadius="10dp"
-    android:layout_gravity="center"
-    android:clickable="true">
+    android:layout_width="352dp"
+    android:layout_height="123dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="3dp">
 
     <ImageView
         android:id="@+id/imageViewRutina"
         android:layout_width="73dp"
         android:layout_height="73dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="26dp"/>
+        android:layout_gravity="center_vertical" />
 
     <TextView
         android:id="@+id/textViewNombreRutina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="134dp"
-        android:layout_marginTop="48dp"
-        android:text="TextView"
-        android:textSize="13sp"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="center_vertical"
         android:fontFamily="@font/montserrat_medium"
-        android:textColor="#333333"/>
+        android:text="TextView"
+        android:textColor="#333333"
+        android:textSize="13sp" />
 
     <TextView
         android:id="@+id/textViewIdRutina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:text=""/>
-    </com.google.android.material.card.MaterialCardView>
+        android:text=""
+        android:visibility="invisible" />
+</com.google.android.material.card.MaterialCardView>

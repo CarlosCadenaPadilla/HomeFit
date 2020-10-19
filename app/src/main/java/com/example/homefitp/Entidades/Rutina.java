@@ -1,5 +1,7 @@
 package com.example.homefitp.Entidades;
 
+import java.util.ArrayList;
+
 public class Rutina {
     String id;
     String nombre;
@@ -7,7 +9,16 @@ public class Rutina {
     int duracion;
     int gastoEnergia;
     int circuitos;
+    ArrayList<DetalleEjercicio> detalleEjercicios;
 
+
+    public ArrayList<DetalleEjercicio> getDetalleEjercicios() {
+        return detalleEjercicios;
+    }
+
+    public void setDetalleEjercicios(ArrayList<DetalleEjercicio> detalleEjercicios) {
+        this.detalleEjercicios = detalleEjercicios;
+    }
 
     public Rutina(String id, String nombre, String idImagen, int duracion, int gastoEnergia, int circuitos) {
         this.id = id;
