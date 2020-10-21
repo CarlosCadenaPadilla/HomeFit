@@ -48,6 +48,7 @@ public class RutinasFragment extends Fragment {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
         recyclerViewRutinas.setLayoutManager(layoutManager);
         rutinaDAO = new RutinaDAO(getContext());
         rutinas = rutinaDAO.consultarRutinas();

@@ -30,10 +30,11 @@ public class ConexionSQLiteHelper extends SQLiteOpenHelper {
                 "<p><strong>Paso 2</strong> Coloque las palmas de las manos en el suelo a la altura de los hombros, ligeramente más abiertos que el ancho de sus hombros.</p>" +
                 "<p><strong>Paso 3</strong> Levante el cuerpo hacia arriba e ir enderezando los brazos, procura mantener una postura erguida. Evita inclinar el tronco hacia atrás.</p>" +
                 "<p><strong>Paso 4</strong> Bajamos el cuerpo doblando los brazos, volvemos a la posición inicial extendiendo los brazos.</p>","flexiones", "", "Media", "Tonificar");
+        insertEjercicio(db,"Zancadas","",   "<p><b>Paso 1</b> Ponte de pie con los pies juntos, y coloca las manos sobre los muslos.</p> <p><b>Paso 2</b> Flexiona las rodillas, salta y separa los pies en pleno salto.</p> <p><b>Paso 3</b> Déjate caer con los pies separados a una distancia mayor que los hombros, bajando hasta quedar en posición de sentadilla.</p>","zancadas", "", "Baja", "Bajar de Peso");
 
         insertRutina(db,"Entrenamiento 7 Minutos", "rutina_7min", 7, 150, 2 );
-        insertRutina(db, "Ejercicios Abdominales","ic_circulo_azul", 7, 150, 2);
-        insertRutina(db, "Ejercicios Absee", "ic_circulo_azul", 7, 150, 2);
+        insertRutina(db, "Ejercicios Abdominales","rutina_abdominales", 7, 150, 2);
+        insertRutina(db, "Entrenamiento Tren Superior", "rutina_tren_superior", 7, 150, 2);
 
         insertDetalleEjercicio(db,1,1,30);
         insertDetalleEjercicio(db,2,1,30);
